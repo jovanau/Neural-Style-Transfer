@@ -448,6 +448,112 @@ Iz tabele su odmah uočljivi sledeći zaključci:
 \paragraph{Završna diskusija:} Serija eksperimenata pokazuje da klasični pristup neuronskom prenosu stila (direktna optimizacija piksela gradijentom) nadmašuje evolutivni pristup u pogledu kvaliteta rešenja i brzine. Genetski algoritam, čak i uz određenu pomoć gradijentnih mutacija, bez dodatne lokalne pretrage nije uspeo efikasno da optimizuje sliku. Dodavanje lokalne pretrage (Adam koraka) u genetski algoritam značajno poboljšava rezultate, što ukazuje da gradijent obavlja najvažniji deo posla u podešavanju slike, dok GA služi za pružanje različitih početnih stanja i globalnu pretragu. U ovom slučaju svi članovi populacije su počinjali slično (oko sadržajne slike), pa je diverzitet populacije bio ograničen; bolji efekti GA bi se mogli videti kod raznovrsnijih inicijalizacija (npr. nasumične slike, različite kombinacije sadržaja i stila). S obzirom na ekstremnu dimenzionalnost problema, evolucioni algoritam bi zahtevao mnogo veće populacije i mnogo generacija da se približi efektu jednog gradijentnog spusta, što postaje nepraktično.
 
 Jedan scenario u kojem bi GA mogao imati prednost su slučajevi sa nediferencijabilnom funkcijom cilja ili dodatno diskretizovanim ograničenjima. Na primer, ako bi se generisana slika sastojala od diskretnih elemenata ili ograničenog skupa boja, gradijentni metod se ne bi mogao direktno primeniti, pa bi evolucioni pristup imao smisla. U čistom NST problemu, diferencijabilnost i snažna orijentacija gradijenta ka minimumu daje preveliku prednost gradijentskoj optimizaciji.
+\newpage
+\section{Dodatni primeri}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.38\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{matf.jpg}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{matf_monet.jpg}
+\end{subfigure}
+
+
+\begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{matf_adam.png}
+    \caption{Adam}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{matf_ga.png}
+    \caption{Hybrid GA}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.2\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{mona.jpg}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{mona_van.jpg}
+\end{subfigure}
+
+
+\begin{subfigure}{0.2\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{mona_van.png}
+    \caption{Adam}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.2\textwidth}
+    \centering
+    \includegraphics[width=\linewidth]{mona_ga.png}
+    \caption{Hybrid GA}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+
+\begin{subfigure}{0.4\textwidth}
+
+    \includegraphics[width=\linewidth]{cat.jpg}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+   
+    \includegraphics[width=\linewidth]{cat_style.jpg}
+\end{subfigure}
+
+\begin{subfigure}{0.4\textwidth}
+   
+    \includegraphics[width=\linewidth]{cat_adam.png}
+    \caption{Adam}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+  
+    \includegraphics[width=\linewidth]{cat_ga.png}
+    \caption{Hybrid GA}
+\end{subfigure}
+\end{figure}
+
+\begin{figure}[H]
+
+\begin{subfigure}{0.4\textwidth}
+
+    \includegraphics[width=\linewidth]{ams.jpg}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.3\textwidth}
+   
+    \includegraphics[width=\linewidth]{ams_van.jpg}
+\end{subfigure}
+
+\begin{subfigure}{0.4\textwidth}
+   
+    \includegraphics[width=\linewidth]{ams_adam.png}
+    \caption{Adam}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.4\textwidth}
+  
+    \includegraphics[width=\linewidth]{ams_ga.png}
+    \caption{Hybrid GA}
+\end{subfigure}
+\end{figure}
+
+\newpage
 
 \section{Zaključak}
 U ovom projektu implementiran je neuronski prenos stila koristeći VGG19 mrežu za izdvajanje karakteristika sadržaja i stila, i ispitana su dva različita optimizaciona pristupa: direktni gradijentski (Adam) i populacioni evolucioni (genetski algoritam), kao i njihova kombinacija. Detaljno je analizirana uloga svakog dela algoritma (od grafa duboke mreže i Gramove matrice do operatora GA i hibridne lokalne pretrage) kako bi se razumelo zašto neki pristupi daju bolje rezultate.
